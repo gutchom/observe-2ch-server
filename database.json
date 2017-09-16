@@ -1,0 +1,23 @@
+{
+  "development": {
+    "driver": "mysql",
+    "host": {"ENV": "MYSQL_HOST"},
+    "username": {"ENV": "MYSQL_USER"},
+    "password": {"ENV": "MYSQL_PASSWORD"},
+    "database": {"ENV": "MYSQL_DATABASE"}
+  },
+  "test": {
+    "driver": "mysql",
+    "host": {"ENV": "MYSQL_HOST"},
+    "username": {"ENV": "MYSQL_USER"},
+    "password": {"ENV": "MYSQL_PASSWORD"},
+    "database": {"ENV": "MYSQL_DATABASE"}
+  },
+  "production": {
+    "driver": "mysql",
+    "host": {"ENV": "MYSQL_HOST"},
+    "username": {"ENV": "MYSQL_USER"},
+    "password": {"ENV": "MYSQL_PASSWORD"},
+    "database": {"ENV": "MYSQL_DATABASE"}
+  }
+}
