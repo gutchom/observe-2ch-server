@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "sourceMap": false,
+    "inlineSourceMap": false,
+    "inlineSources": false,
+    "pretty": false,
+    "removeComments": true,
+    "importHelpers": true,
+    "outDir": "app",
+    "baseUrl": "src",
+    "paths": {
+      "*": ["*"]
+    },
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "test"
+  ],
+  "atom": {
+    "rewriteTsConfig": false
+  },
+  "compileOnSave": false
+}
