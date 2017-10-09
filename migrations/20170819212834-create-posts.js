@@ -43,7 +43,6 @@ exports.up = function(db) {
     url: {
       type: 'string',
       notNull: true,
-      unique: true,
     },
     timestamp: {
       type: 'datetime',
@@ -68,11 +67,11 @@ exports.up = function(db) {
         mapping: 'id',
       },
     },
-  })
+  });
 };
 
 exports.down = function(db) {
-  return db.dropTable('posts')
+  return db.dropTable('posts');
 };
 
 exports._meta = {

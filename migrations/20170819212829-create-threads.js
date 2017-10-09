@@ -39,7 +39,6 @@ exports.up = function(db) {
     url: {
       type: 'string',
       notNull: true,
-      unique: true,
     },
     res: {
       type: 'int',
@@ -64,11 +63,11 @@ exports.up = function(db) {
         mapping: 'id',
       },
     },
-  })
+  });
 };
 
 exports.down = function(db) {
-  return db.dropTable('threads')
+  return db.dropTable('threads');
 };
 
 exports._meta = {

@@ -35,7 +35,6 @@ exports.up = function(db) {
     uid: {
       type: 'string',
       notNull: true,
-      unique: true,
     },
     token: {
       type: 'string',
@@ -49,11 +48,11 @@ exports.up = function(db) {
       type: 'string',
       notNull: true,
     },
-  })
+  });
 };
 
 exports.down = function(db) {
-  return db.dropTable('users')
+  return db.dropTable('users');
 };
 
 exports._meta = {

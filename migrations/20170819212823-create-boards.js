@@ -35,13 +35,12 @@ exports.up = function(db) {
     url: {
       type: 'string',
       notNull: true,
-      unique: true,
     },
   })
 };
 
 exports.down = function(db) {
-  return db.dropTable('boards')
+  return db.dropTable('boards');
 };
 
 exports._meta = {
