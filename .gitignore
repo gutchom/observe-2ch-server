@@ -1,5 +1,5 @@
-node_modules/
-public/
 app/
+public/
+node_modules/
 
 !.keep

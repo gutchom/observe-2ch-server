@@ -4,20 +4,23 @@
     "host": {"ENV": "MYSQL_HOST"},
     "username": {"ENV": "MYSQL_USER"},
     "password": {"ENV": "MYSQL_PASSWORD"},
-    "database": {"ENV": "MYSQL_DATABASE"}
+    "database": {"ENV": "MYSQL_DATABASE"},
+    "multipleStatements": true
   },
   "test": {
     "driver": "mysql",
     "host": {"ENV": "MYSQL_HOST"},
     "username": {"ENV": "MYSQL_USER"},
     "password": {"ENV": "MYSQL_PASSWORD"},
-    "database": {"ENV": "MYSQL_DATABASE"}
+    "database": {"ENV": "MYSQL_DATABASE"},
+    "multipleStatements": true
   },
   "production": {
     "driver": "mysql",
     "host": {"ENV": "MYSQL_HOST"},
     "username": {"ENV": "MYSQL_USER"},
     "password": {"ENV": "MYSQL_PASSWORD"},
-    "database": {"ENV": "MYSQL_DATABASE"}
+    "database": {"ENV": "MYSQL_DATABASE"},
+    "multipleStatements": true
   }
 }

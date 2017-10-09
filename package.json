@@ -17,11 +17,16 @@
     "url": "https://github.com/gutchom/observe-2ch-server/issues"
   },
   "scripts": {
-    "start": "docker-compose -f docker/docker-compose.yml up",
+    "start": "",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "tsc -w --pretty  --sourceMap",
+    "clean": "rm -rf ./app/*",
+    "migrate": "db-migrate up -e development",
+    "prewatch": "npm run clean",
+    "watch": "tsc && tsc -w --pretty --sourceMap",
+    "prebuild": "npm run clean",
     "build": "tsc && git submodule update && cd ./client && npm run build && mv ./public ../",
-    "dev": "db-migrate up && pm2-dev ./app/index.js"
+    "predev": "npm run migrate",
+    "dev": "pm2-dev ./app/index.js"
   },
   "dependencies": {
     "bluebird": "^3.5.1",
