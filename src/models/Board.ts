@@ -9,6 +9,10 @@ import Thread from "./Thread"
 export default class Board extends Model<Board> {
   @AllowNull(false)
   @Column
+  name: string
+
+  @AllowNull(false)
+  @Column
   url: string
 
   @HasMany(() => Thread)
