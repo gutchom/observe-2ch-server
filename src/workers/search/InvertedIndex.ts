@@ -1,10 +1,10 @@
-export interface Location {
+export interface Posting {
   document: string
   position: number
 }
 
 export interface Ngram {
-  locations: Location[]
+  postings: Posting[]
   substring: string
 }
 
@@ -26,10 +26,10 @@ export default class InvertedIndex {
     return [...this.index]
   }
 
-  locations(substring: string): Location[] {
+  postings(substring: string): Posting[] {
     const ngram = this.index.find(ngram => ngram.substring === substring)
 
-    return typeof ngram !== 'undefined' ? ngram.locations : []
+    return typeof ngram !== 'undefined' ? ngram.postings : []
   }
 
   merge(index: Ngram[]): this {
@@ -38,19 +38,19 @@ export default class InvertedIndex {
     return this
   }
 
-  private dedupe(ngrams: Ngram[], { substring, locations }: Ngram): Ngram[] {
+  private dedupe(ngrams: Ngram[], { substring, postings }: Ngram): Ngram[] {
     let matched = false
 
     const index = ngrams
       .map(ngram => (matched = substring === ngram.substring) ? {
         ...ngram,
-        locations: ngram.locations.concat(locations).filter(
+        postings: ngram.postings.concat(postings).filter(
           (base, index, self) => index <= self.findIndex(({ document, position }) => base.document === document && base.position === position)
         )
       } : ngram)
       .filter((base, index, self) => index <= self.findIndex(({ substring }) => base.substring === substring))
 
-    return matched ? index : index.concat({ substring, locations })
+    return matched ? index : index.concat({ substring, postings })
   }
 
   private static ngrams(document: string, text: string): Ngram[] {
@@ -59,7 +59,7 @@ export default class InvertedIndex {
     for (let i = text.length; 1 < i; i--) {
       const position = text.length - i
       const substring = text.substring(position, position + 2)
-      ngrams.push({ substring, locations: [{ document, position }] })
+      ngrams.push({ substring, postings: [{ document, position }] })
     }
 
     return ngrams
