@@ -1,5 +1,5 @@
 import { AllowNull, Column, HasMany, Model, Table } from 'sequelize-typescript'
-import Thread from "./Thread"
+import Thread from './Thread'
 
 @Table({
   tableName: 'boards',

@@ -1,6 +1,6 @@
 import { AllowNull, BelongsTo, Column, DataType, ForeignKey, HasMany, Model, Table } from 'sequelize-typescript'
-import Board from "./Board"
-import Post from "./Post"
+import Board from './Board'
+import Post from './Post'
 
 @Table({
   tableName: 'threads',

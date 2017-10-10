@@ -1,4 +1,4 @@
-import { join } from 'path'
+import * as path from 'path'
 import * as express from 'express'
 import * as bodyParser from 'body-parser'
 import * as cookieParser from 'cookie-parser'
@@ -14,7 +14,7 @@ export const redis = createClient('//' + process.env.REDIS_HOST as string + ':63
 import 'reflect-metadata'
 import { Sequelize } from 'sequelize-typescript'
 import dbConfig from './config/config'
-export const sequelize = new Sequelize(dbConfig[process.env['NODE_ENV'] as string])
+export const sequelize = new Sequelize(dbConfig[process.env.NODE_ENV as string])
 
 /**
  * Create session store
@@ -37,7 +37,7 @@ const app = express()
  * Express configuration.
  */
 app.set('port', process.env.PORT || 3000)
-app.set('views', join(__dirname, '../views'))
+app.set('views', path.join(__dirname, '../views'))
 app.set('view engine', 'pug')
 app.use(cookieParser('hoge'))
 app.use(bodyParser.json())
@@ -68,10 +68,12 @@ import { isAuthenticated } from './config/passport'
  */
 app.route('/')
   .get(pageController.index)
+
 app.route('/logout')
   .get(pageController.logout)
 app.route('/api/search')
   .post(isAuthenticated, apiController.search)
+
 
 /**
  * OAuth authentication routes. (Sign in)

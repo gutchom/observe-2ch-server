@@ -19,7 +19,7 @@ passport.serializeUser<any, any>((user, done) => {
 })
 
 passport.deserializeUser((id: number, done) => {
-  User.findOne<User>({where: {uid: id}})
+  User.findOne({where: {uid: id}})
     .then((user: User) => done(null, user.get({plain: true})))
     .catch(err => done(err, undefined))
 })
@@ -31,10 +31,10 @@ passport.use(new TwitterStrategy({
   consumerKey: process.env.OBSERVE2CH_TWITTER_CONSUMER as string,
   consumerSecret: process.env.OBSERVE2CH_TWITTER_CONSUMER_SECRET as string,
   callbackURL,
-}, (token, tokenSecret, profile: TwitterProfile, done) => {
+}, (token, tokenSecret, profile, done) => {
   console.log(profile)
   User
-    .findOrCreate<User>({
+    .findOrCreate({
       where: {uid: profile.id},
       defaults: {
         uid: profile.id,
