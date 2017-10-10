@@ -22,16 +22,17 @@
       "./node_modules/@types"
     ],
     "paths": {
-      "*": ["*", "./src/*"],
+      "*": ["*"],
+      "src": ["./src"],
       "views": ["./views"]
-    },
+    }
   },
   "include": [
     "./src/**/*"
   ],
   "exclude": [
     "./node_modules",
-    "./test"
+    "./test/**/*"
   ],
   "atom": {
     "rewriteTsConfig": false
